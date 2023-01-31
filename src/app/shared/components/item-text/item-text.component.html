@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="wrapper-post">
+    <div class="card mb-3" style="max-width: 400px;">
+      <img [src]="post.image" class="img-a">
+      <div class="card-body">
+        <h5 class="card-title">
+          <div class="row align-items-start">
+            <div class="col-12 text-15"><img [src]="post.author.avatar" class="avatar"/> <span class="m-2 text-bold">{{post.author.name+' '+post.author.surname}}</span>@{{ post.author.username }}</div>
+          </div>
+        </h5>
+        <div class="card-text">{{post.message}}</div>
+        <img src="assets/heart.svg" width="30" height="16"/>
+
+        <div class="row align-items-start" *ngIf="userLikes && userLikes.username">
+          <div class="col-12">
+            <img [src]="userLikes.avatar" class="avatar avatar-small"/> <small class="m-2 text-10">Le gusta a <span class="text-bold">@{{userLikes.username}}</span><span *ngIf="count > 0"> y <b class="text-bold">{{ count }} mas</b></span> </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

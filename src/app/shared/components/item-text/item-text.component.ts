@@ -3,29 +3,23 @@ import {Post} from "../../../post/interfaces/post.interface";
 import {User} from "../../interfaces/user.interface";
 
 @Component({
-  selector: 'app-item-image',
-  templateUrl: './item-image.component.html',
+  selector: 'app-item-text',
+  templateUrl: './item-text.component.html',
   styles: [`
     .card {
       margin: 0 auto;
     }
-    .img-a {
-      height: 250px;
-    }
   `]
 })
-export class ItemImageComponent implements OnInit {
-
+export class ItemTextComponent implements OnInit {
   @Input() post: Post = {} as Post
   userLikes: User = {} as User;
   count: number = 0;
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
     this.getUserLikesPost()
   }
-
   private getUserLikesPost(): { username: User, count: number } | null {
     const posts = this.post.likes;
     if (this.post && posts?.length) {

@@ -1,7 +1,12 @@
 <div class="wrapper">
   <div class="wrapper-post">
     <div *ngFor="let post of posts; let i=index">
-      <app-item-image [post]="post"></app-item-image>
+      <div *ngIf="post.image; else elseBlock">
+        <app-item-image [post]="post"></app-item-image>
+      </div>
+      <ng-template #elseBlock>
+        <app-item-text [post]="post"></app-item-text>
+      </ng-template>
     </div>
   </div>
 </div>

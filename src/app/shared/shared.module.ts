@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import { ItemImageComponent } from './components/item-image/item-image.component';
+import { ItemTextComponent } from './components/item-text/item-text.component';
 
 const BASE_MODULE = [
   CommonModule,
@@ -13,9 +14,10 @@ const BASE_MODULE = [
 
 @NgModule({
   declarations: [
-    ItemImageComponent
+    ItemImageComponent,
+    ItemTextComponent
   ],
   imports: [...BASE_MODULE],
-  exports: [...BASE_MODULE, ItemImageComponent]
+    exports: [...BASE_MODULE, ItemImageComponent, ItemTextComponent]
 })
 export class SharedModule { }
