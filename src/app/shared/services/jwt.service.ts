@@ -2,6 +2,12 @@
 import * as jwt_decode from 'jwt-decode';
 import {Injectable} from '@angular/core';
 
+interface TokenDecoded {
+  exp: number;
+  iat: number;
+  role: string;
+  _id: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +25,7 @@ export class JwtService {
     localStorage.removeItem('token');
   }
 
-  getTokenDecoded(token: string | null) {
+  getTokenDecoded(token: string | null): TokenDecoded {
     if (!token) {
       token = this.getToken();
     }

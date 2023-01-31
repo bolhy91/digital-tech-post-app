@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PostService} from "./services/post.service";
 import {Post} from "./interfaces/post.interface";
+import {AuthService} from "../auth/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styles: [`
-    .wrapper-post{
+    .wrapper-post {
       width: 100%;
       height: 100%;
       text-align: left;
@@ -18,7 +20,13 @@ export class PostComponent implements OnInit {
 
   isLoading: boolean = false;
   posts: Array<Post> = [];
-  constructor(private postService: PostService) { }
+  role: string = '';
+
+  constructor(private postService: PostService, private authService: AuthService, private router: Router) {
+    this.authService.currentRole.subscribe(x => {
+      this.role = x;
+    });
+  }
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -31,6 +39,12 @@ export class PostComponent implements OnInit {
         }
       }, error => {
         this.isLoading = false;
-      }, () => {this.isLoading = false});
+      }, () => {
+        this.isLoading = false
+      });
+  }
+
+  goAdmin() {
+    this.router.navigate(['/admin']);
   }
 }

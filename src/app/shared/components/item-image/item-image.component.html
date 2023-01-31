@@ -9,15 +9,17 @@
       <img [src]="post.image" class="img-a">
       <div class="card-body">
         <h5 class="card-title">
-          <img src="assets/heart.svg" width="30" height="16"/>
-          <div class="row align-items-start" *ngIf="userLikes && userLikes.username">
+          <div>
+            <img src="assets/heart.svg" *ngIf="!like" width="30" height="16" (click)="like = !like"/>
+            <img src="assets/heart-fill.svg" *ngIf="like" width="30" height="16" (click)="like = !like"/>
+          </div>          <div class="row align-items-start" *ngIf="userLikes && userLikes.username">
             <div class="col-12">
               <img [src]="userLikes.avatar" class="avatar avatar-small"/> <small class="m-2 text-10">Le gusta a <span class="text-bold">@{{userLikes.username}}</span><span *ngIf="count > 0"> y <b class="text-bold">{{ count }} mas</b></span> </small>
             </div>
           </div>
         </h5>
         <p class="card-text"><span class="text-bold">{{post.author.username}}</span> {{post.message}}</p>
-        <p class="card-text"><small class="text-muted">{{ post.create_at | date:'medium'}}</small></p>
+        <p class="card-text"><small class="text-muted">{{ post.create_at | date:'mediumDate'}}</small></p>
       </div>
     </div>
   </div>

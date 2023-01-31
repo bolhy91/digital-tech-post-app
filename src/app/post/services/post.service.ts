@@ -6,7 +6,6 @@ import {map} from "rxjs";
   providedIn: 'root'
 })
 export class PostService {
-
   constructor(private apiService: ApiService) { }
   getPosts(page: number = 1) {
     return this.apiService.get(`posts`).pipe(

@@ -19,6 +19,7 @@ export class ItemImageComponent implements OnInit {
   @Input() post: Post = {} as Post
   userLikes: User = {} as User;
   count: number = 0;
+  like: boolean = false;
   constructor() {
   }
 

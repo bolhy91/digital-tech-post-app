@@ -9,8 +9,10 @@
           </div>
         </h5>
         <div class="card-text">{{post.message}}</div>
-        <img src="assets/heart.svg" width="30" height="16"/>
-
+        <div>
+          <img src="assets/heart.svg" *ngIf="!like" width="30" height="16" (click)="like = !like"/>
+          <img src="assets/heart-fill.svg" *ngIf="like" width="30" height="16" (click)="like = !like"/>
+        </div>
         <div class="row align-items-start" *ngIf="userLikes && userLikes.username">
           <div class="col-12">
             <img [src]="userLikes.avatar" class="avatar avatar-small"/> <small class="m-2 text-10">Le gusta a <span class="text-bold">@{{userLikes.username}}</span><span *ngIf="count > 0"> y <b class="text-bold">{{ count }} mas</b></span> </small>

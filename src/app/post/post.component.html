@@ -1,12 +1,17 @@
 <div class="wrapper">
   <div class="wrapper-post">
-    <div *ngFor="let post of posts; let i=index">
-      <div *ngIf="post.image; else elseBlock">
-        <app-item-image [post]="post"></app-item-image>
+    <div class="row">
+      <div class="col-12 text-left" *ngIf="this.role == 'ADMIN'"><h2>Administrar Post <button type="button" class="btn btn-primary" (click)="goAdmin()">Ir</button></h2></div>
+      <div class="col-12">
+        <div *ngFor="let post of posts; let i=index">
+          <div *ngIf="post.image; else elseBlock">
+            <app-item-image [post]="post"></app-item-image>
+          </div>
+          <ng-template #elseBlock>
+            <app-item-text [post]="post"></app-item-text>
+          </ng-template>
+        </div>
       </div>
-      <ng-template #elseBlock>
-        <app-item-text [post]="post"></app-item-text>
-      </ng-template>
     </div>
   </div>
 </div>
