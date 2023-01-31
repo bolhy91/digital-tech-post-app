@@ -1,27 +1,40 @@
-# DigitalTechPostApp
+# Digital Tech - App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
+## Instalacion
 
-## Development server
+RUN `npm i`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+RUN `ng serve`
 
-## Code scaffolding
+## Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+El app consta de las siguientes caracteristicas:
 
-## Build
+URL: http://localhost:4200/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* **Login**: Autenticacion del usuario por medio de su username, esto le devuelve un token que se almacena para la validaciones del usuaro y proteger ciertas rutas.
 
-## Running unit tests
+* **Register**: Registro del usuario a nuestra app, debe proporcionar name, surname, username. Quedo pendiente la implementacion de la subida de avatar, utilizando postman si se puede subir su avatar.
+* **Posts**: Lista todos los posts de los usuarios. Se implementa dos tipos de Post; cuando el usuario sube la foto y cuando el post no contiene la foto. Falto implementar las subida del post a traves del front. A nivel de Api si se encuentra.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Las rutas de nuestra aplicacion es:
+* /auth/login
+* /auth/register
+* /posts
+* /admin
 
-## Running end-to-end tests
+### Vista de la App
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Images
 
-## Further help
+* Listado de Post
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![This is a alt text.](/images/login.png "This is a sample image.")
+
+* Login
+
+![This is a alt text.](/images/home.png "This is a sample image.")
+
+### Herramientas utilizadas
+* Typescript
+* Angular
