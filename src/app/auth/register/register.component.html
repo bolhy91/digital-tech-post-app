@@ -1,0 +1,31 @@
+<div class="wrapper-login">
+  <main class="form-signin w-100 m-auto">
+    <form>
+      <h1 class="h3 mb-3 fw-normal">Digital Tech - Sign Up</h1>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingName"/>
+        <label for="floatingName">Name</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingSurname"/>
+        <label for="floatingSurname">SurName</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingUser"/>
+        <label for="floatingUser">Username</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingAvatar"/>
+        <label for="floatingAvatar">avatar</label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">¿Ya tienes una cuenta con nosotros?</p>
+      <a [routerLink]="['/auth/login']">Iniciar Sesion</a>
+    </form>
+  </main>
+</div>

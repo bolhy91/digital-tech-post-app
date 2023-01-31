@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="wrapper-post">
+    <div class="card mb-3" style="max-width: 400px;">
+      <div class="card-header">
+        <div class="row align-items-start">
+          <div class="col-12"><img [src]="post.author.avatar" class="avatar"/> <span class="m-2 text-bold">@{{ post.author.username }}</span></div>
+        </div>
+      </div>
+      <img [src]="post.image" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title" *ngIf="userLikes && userLikes.username">
+          <div class="row align-items-start">
+            <div class="col-12">
+              <img [src]="userLikes.avatar" class="avatar avatar-small"/> <small class="m-2 text-10">Le gusta a <span class="text-bold">@{{userLikes.username}}</span><span *ngIf="count > 0"> y <b class="text-bold">{{ count }} mas</b></span> </small>
+            </div>
+          </div>
+        </h5>
+        <p class="card-text"><span class="text-bold">{{post.author.username}}</span> {{post.message}}</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
