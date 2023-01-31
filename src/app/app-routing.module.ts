@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: 'post',
     loadChildren: () => import('./post/post.module').then(m => m.PostModule),
-    canActivate: [AuthGuard, RoleGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'admin',
@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/auth',
+    redirectTo: 'auth',
     pathMatch: 'full'
   }
 ];

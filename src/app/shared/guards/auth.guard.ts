@@ -19,6 +19,9 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!this.jwtService.isTokenExpired()) {
+      const token = this.jwtService.getToken();
+      const decoded = this.jwtService.getTokenDecoded(token);
+      this.auth.roleSubject.next(decoded.role);
       return true;
     }
     this.router.navigate(['./auth/login']);

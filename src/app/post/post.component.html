@@ -1,7 +1,12 @@
 <div class="wrapper">
   <div class="wrapper-post">
     <div class="row">
-      <div class="col-12 text-left" *ngIf="this.role == 'ADMIN'"><h2>Administrar Post <button type="button" class="btn btn-primary" (click)="goAdmin()">Ir</button></h2></div>
+      <div class="col-10 text-left">
+        <h2 *ngIf="this.role == 'ADMIN'">Administrar Post
+          <button type="button" class="btn btn-primary" (click)="goAdmin()">Ir</button>
+        </h2>
+      </div>
+      <div class="col-2"><a href="#" (click)="signOut()">Cerrar Sesion</a></div>
       <div class="col-12">
         <div *ngFor="let post of posts; let i=index">
           <div *ngIf="post.image; else elseBlock">

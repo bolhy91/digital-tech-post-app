@@ -47,4 +47,9 @@ export class PostComponent implements OnInit {
   goAdmin() {
     this.router.navigate(['/admin']);
   }
+
+  signOut() {
+    this.authService.logout();
+    this.router.navigate(['./auth/login']);
+  }
 }
